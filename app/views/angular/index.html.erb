@@ -1,0 +1,14 @@
+<div ng-controller="appController">
+	<h1>Respositorios de {{repos[0].owner.login}}</h1>
+	<input jc-autocomplete="repos_name">
+	<div ng-show="repos.length == 0">No se encontraron resultados...</div>
+	<ul>
+		<li ng-repeat="repo in repos" ng-hide="repo_selected && repo_selected != repo.name">
+			<h1><%= link_to "{{repo.name}}", "{{repo.html_url}}"%>  </h1>
+			<div jc-imageavantar="{{repo.owner.avatar_url}}" class="circular"></div>
+			<p>{{repo.language}} by {{repo.owner.login}}</p>
+
+		</li>
+	</ul>
+
+</div>
